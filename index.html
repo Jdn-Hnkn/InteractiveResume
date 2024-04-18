@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="./style.css">
+		<link rel="stylesheet" href="./simple-scrollbar.css">
+		<title>Jaden's IR</title>
+		<script src="script.js"></script>
+		<script src="simple-scrollbar.js"></script>
+	</head>
+	
+	<body>
+		<!--<svg>
+			<defs>
+				<filter id="fisheye">
+					<feImage href="bubble.png" result="lightMap"/>
+					<feDisplacementMap in2="lightMap" in="SourceGraphic" xChannelSelector="R" yChannelSelector="G" scale="20" result="displacedSource"/>
+					<feGaussianBlur in="displacedSource" stdDeviation="0.1" result="blurredSource"/>
+				</filter>
+			</defs>
+		</svg>-->
+		<div class="monitor">
+			<div id="screen" class="screen">
+
+				<!-- Content of screen -->
+				<div id="screen-content" class="screen-content">
+
+					<!-- Desktop -->
+					<div id="desktop" class="screen-content">
+						<div class="desktopicon" onclick="showWindow(windows.aboutMe)" style="background: url('./icon/user_card.png') no-repeat; background-position: top 2px right 21px;">
+							<div class="desktopicon-text">About Me</div>
+						</div>
+						<div class="desktopicon" onclick="showWindow(windows.experience)" style="background: url('./icon/briefcase.png') no-repeat; background-position: top 2px right 21px;">
+							<div class="desktopicon-text">Experience</div>
+						</div>
+						<div class="desktopicon" onclick="showWindow(windows.test)" style="background: url('./icon/certificate_seal.png') no-repeat; background-position: top 2px right 21px;">
+							<div class="desktopicon-text">Certifications</div>
+						</div>
+						<div class="desktopicon" onclick="showWindow(windows.portfolio)" style="background: url('./icon/catalog.png') no-repeat; background-position: top 2px right 21px;">
+							<div class="desktopicon-text">Portfolio</div>
+						</div>
+					</div>
+
+					<!-- Windows -->
+					<div id="testWindow" class="window" style="position: absolute; display:none; width: 300px">
+						<div class="title-bar">
+							<div class="title-bar-text">Test Window</div>
+							<div class="title-bar-controls">
+								<button aria-label="Minimize" onclick="minimizeWindow(windows.test)"></button>
+								<button aria-label="Maximize" onclick="maximizeWindow(windows.test)"></button>
+								<button aria-label="Close" onclick="closeWindow(windows.test)"></button>
+							</div>
+						</div>
+						<div class="window-body">
+							<p>This window doesn't do anything yet, but it will soon!</p>
+						</div>
+					</div>
+
+					<div id="aboutMe" class="window" style="position: absolute; display:none; width: 500px; height: 390px; left: 70px; top: 26px">
+						<div class="title-bar">
+							<div class="title-bar-text">About Me</div>
+							<div class="title-bar-controls">
+								<button aria-label="Minimize" onclick="minimizeWindow(windows.aboutMe)"></button>
+								<button aria-label="Maximize" onclick="maximizeWindow(windows.aboutMe)"></button>
+								<button aria-label="Close" onclick="closeWindow(windows.aboutMe)"></button>
+							</div>
+						</div>
+						<div class="window-content">
+							<div class="window-body">
+								<p style="font-weight: bold; font-size: 1rem; margin-top: 8px; margin-bottom: 0px;">Hello! My name is Jaden, and welcome to my website.</p>
+								<img src="image.png" style="float: left">
+								<p style="font-size: 14px; text-align: left; padding-top: 10px; margin-left: calc(33%); margin-right: 20px;">I’m an IT specialist with a passion for learning and a knack for problem solving. I have experience in Support, Networking, Cybersecurity, and Software Development among many others. I can pick up just about any skill in no time flat, and already have quite a few under my belt. If you’re wondering what I’m capable of, it might be faster to list what I can’t do!</p>
+								<p style="font-size: 14px; text-align: left; margin: calc(6%) 20px 20px 20px;">To find out more about me, try navigating around the desktop like you would an actual computer, you can even drag the windows around! The icons can be clicked to view pages on my experiences, portfolio, and certifications. If you’d like to reach out, click the <b>Contact Me</b> icon in the bottom right.</p>
+								<p style="font-size: 14px; text-align: center; margin: 10px;">I look forward to hearing from you!</p>
+								<!--<button style="width: 75px; height: 23px; margin: 10px 10px 0 10px;" onclick="minimizeWindow(windows.aboutMe)">OK</button>-->
+								<button style="width: 75px; height: 23px; margin: 10px 10px 10px 10px;" onclick="closeWindow(windows.aboutMe)">Close</button>
+							</div>
+						</div>
+						<div class="status-bar fill">
+							<p class="status-bar-field">Press F1 for help</p>
+							<p class="status-bar-field">Last Updated: 4/5/24</p>
+							<p class="status-bar-field">Created by Jaden Hankin</p>
+							<!--<img src="icon/corner.svg" style="position: absolute; right: 0px;">-->
+						</div>
+					</div>
+
+					<div id="experience" class="window" style="position: absolute; display:none; width: 500px; height: 390px; left: 70px; top: 26px;">
+						<div class="title-bar">
+							<div class="title-bar-text">Experience</div>
+							<div class="title-bar-controls">
+								<button aria-label="Minimize" onclick="minimizeWindow(windows.experience)"></button>
+								<button aria-label="Maximize" onclick="maximizeWindow(windows.experience)"></button>
+								<button aria-label="Close" onclick="closeWindow(windows.experience)"></button>
+							</div>
+						</div>
+						<div class="window-content">
+							<div class="window-body" style="overflow: auto; height: calc(100% - 4px); margin-right: 2px;" ss-container="">
+								<p style="font-weight: bold; font-size: 1rem; margin-top: 8px; margin-bottom: 0px;">My Experiences</p>
+								<div style="overflow: hidden;">
+									<p id="experience-header" style="float: left"><b>TECH CORP</b> - Tallahassee, FL</p>
+									<p id="experience-header" style="float: right">November 2023 - Present</p>
+								</div>
+								<div style="overflow: hidden;">
+									<p id="experience-body">At TECH CORP, I work as a TECH Engineer Apprentice. The position involves providing technical support to a variety of clients, each with different and unique challenges to overcome. Dealing with these can include replacing or repairing hardware, troubleshooting commercial and in-house software, and managing networks among many others. Additionally, I work to create varied and advanced scripts used to automate and significantly improve productivity. Some examples include those that have been used to streamline software installs, diagnose networking issues, backup servers, and deploy virtual machines.</p>
+									<p id="experience-body">The job can be challenging at times, needing to work with a large array of systems and clients, and requires in-depth knowledge of networking, hardware, and software. It forces me to think on my feet, quickly learning and adapting to new systems and challenges every day. In addition to the technical skills I have picked up and further refined, the position has helped me develop greater communication, time management, and organizational skills in order to excel in the workplace.</p>
+								</div>
+								<p id="experience-quote">"Quote" -Supervisor</p>
+								<div style="overflow: hidden;">
+									<p id="experience-header" style="float: left"><b>FLHSMV</b> - Tallahassee, FL</p>
+									<p id="experience-header" style="float: right">May 2023 - September 2023</p>
+								</div>	
+								<div style="overflow: hidden;">
+									<p id="experience-body">At the Florida Department of Highway Safety and Motor Vehicles, I worked as a CVE IT Technician on an internship. The position involved working in a high security environment and assisting with general IT tasks, such as imaging computers, replacing hard drives, providing general technical support to workers, and recording information into databases. It wasn’t always the most complex, but it was an excellent first step into the professional environment and helped me refine the skills needed to work in one. Additionally, I worked to provide remote technical support to Law Enforcement agents calling from across the state of Florida. Having to take calls from a wide variety of people, each in different positions and with different reasons for calling could be difficult, but only helped to further hone my communication, support, and technical skills.</p>
+									<p id="experience-body">My most prominent contribution was my work with existing automation systems, both creating new scripts from scratch and improving upon existing scripts to improve speed, reliability, and flexibility. These were both command line and GUI based and used for managing and deploying an ecosystem of programs, drivers, networking setups, and operating system settings. Working on these taught me a great deal, and gave me an in-depth understanding of Windows software and the Registry specifically, in addition to a better understanding of how a large scale IT ecosystem works to assist users.</p>
+								</div>
+								<p id="experience-quote">"Quote" -Supervisor</p>
+								<button style="width: 75px; height: 23px; margin: 10px 10px 26px 10px;" onclick="closeWindow(windows.experience)">Close</button>
+							</div>
+						</div>
+					</div>
+
+					<div id="portfolio" class="window" style="position: absolute; display:none; width: 500px; height: 390px; left: 70px; top: 26px">
+						<div class="title-bar">
+							<div class="title-bar-text">Portfolio</div>
+							<div class="title-bar-controls">
+								<button aria-label="Minimize" onclick="minimizeWindow(windows.portfolio)"></button>
+								<button aria-label="Maximize" onclick="maximizeWindow(windows.portfolio)"></button>
+								<button aria-label="Close" onclick="closeWindow(windows.portfolio)"></button>
+							</div>
+						</div>
+						<div id="pages" class="window-body">
+							<div style="width: 90%; margin-left: auto; margin-right: auto;">
+								<button class="tab" onclick="pageSelect('pf1')">Project 1</button>
+								<button class="tab" onclick="pageSelect('pf2')">Project 2</button>
+								<button class="tab" onclick="pageSelect('pf3')">Project 3</button>
+								<button class="tab" onclick="pageSelect('pf4')">Project 4</button>
+							</div>
+							<div id="pf1" class="window-content portfolio" style="display: block;">
+								<div class="window-body" style="overflow: auto; height: calc(100% - 4px); margin-right: 2px;" ss-container="">
+									<p style="font-size: 1rem; margin: 8px;"><b>Powershell Program Installation GUI</b> - TECH CORP</p>
+									<img src="img/pf1.png" style="width: 80%; image-rendering: revert; box-shadow: 4px 4px #333333;">
+									<div style="font-size: 13px; text-align: left; margin: 8px; margin-left: 25px; text-indent: 2rem;">
+										<p>Created by me for internal usage at TECH CORP, the script automates the normally manual installation of a security program for different organizations, though the exact specifics cannot be given for security reasons.</p>
+										<p>Rather than needing to find and locate several pieces of information before running several commands, one just has to select a location from the list and press “Install”. The script helps to simplify an important setup process for less technically knowledgeable users through a simple GUI interface and streamlines the installation as a whole.</p>
+										<p>The script was created in a day, and helped further refine my Powershell skills. It was also a more user-facing script than most I had worked on previously, and taught me about the important considerations needed in such cases.</p>
+									</div>
+								</div>
+							</div>
+							<div id="pf2" class="window-content portfolio">
+								<div class="window-body" style="overflow: auto; height: calc(100% - 4px); margin-right: 2px;" ss-container="">
+									<p style="font-size: 1rem; margin: 8px;"><b>'My Users' App</b> - FSU</p>
+									<img src="img/pf2.gif" style="width: 250px; image-rendering: revert; box-shadow: 4px 4px #333333;">
+									<div style="font-size: 13px; text-align: left; margin: 8px; margin-left: 25px; text-indent: 2rem;">
+										<p>Created for FSU class LIS4331 (Advanced Mobile Applications Development), the app was developed for Android using Android Studio. The app stores a number of users in a created and persistent SQLite Database, and allows for users to be added, updated, and removed.</p>
+										<p>The most challenging aspect of the development was the managing of the database after its creation, but it didn’t take long to get everything working as it should. Working on the app helped me learn more about app creation, working with databases, and improved my general development abilities. </p>
+									</div>
+								</div>
+							</div>
+							<div id="pf3" class="window-content portfolio">
+								<div class="window-body" style="overflow: auto; height: calc(100% - 4px); margin-right: 2px;" ss-container="">
+									<p style="font-size: 1rem; margin: 8px;"><b>Eole Foobar Theme</b> - Github</p>
+									<img src="img/pf3.png" style="width: 80%; image-rendering: revert; box-shadow: 4px 4px #333333;">
+									<div style="font-size: 13px; text-align: left; margin: 8px; margin-left: 25px; text-indent: 2rem;">
+										<p>Foobar2000 is a modular freeware audio player originally released in 2002. It is actively developed and widely popular for its flexibility in user configuration and customization.</p>
+										<p>One such customization is a skin called “Eole”, created by github user Ottodix. The skin does not frequently receive updates anymore, as the creator has largely stopped maintaining it. I began using the skin myself several years ago, and have recently been working to try and maintain it.</p>
+										<p>This work includes updating required components, improving existing features, adding new features, fixing bugs, and solving related issues that users report. The skin is written primarily using Javascript and HTML, and working on it requires skills in both.</p>
+										<p>Working on an project such as this with a large existing codebase has been challenging at times, but has been extremely insightful in teaching me about working with others through open-source code, using github, and working with end-users to resolve problems.</p>
+									</div>
+								</div>
+							</div>
+							<div id="pf4" class="window-content portfolio">
+								<div class="window-body" style="overflow: auto; height: calc(100% - 4px); margin-right: 2px;" ss-container="">
+									<p style="font-size: 1rem; margin: 8px;"><b>Interactive Resume</b> - FSU</p>
+									<img src="img/pf4.png" style="width: 80%; image-rendering: revert;">
+									<div style="font-size: 13px; text-align: left; margin: 8px; margin-left: 25px; text-indent: 2rem;">
+										<p>This project is what you are looking at right now! Created for FSU class LIS 4708 (IT Professions), this is a website that serves as an Interactive Resume for prospective employers to view in addition to a more standard resume.</p>
+										<p>Designed to mimic the interface of a Windows 98 Computer, the site was made from scratch by me using HTML, Javascript, and CSS in addition to a handful of open-source libraries.</p>
+										<p>Working on the site has been my first large foray into Web Development outside of the basics. Some parts of the development have been challenging, but these difficulties only help me further learn. It has been a highly rewarding and informative experience that has significantly improved my development and design skills while also helping to better market myself for the professional world.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="status-bar fill">
+							<p class="status-bar-field">Press F1 for help</p>
+							<p class="status-bar-field">Last Updated: 4/5/24</p>
+							<p class="status-bar-field">Created by Jaden Hankin</p>
+							<!--<img src="icon/corner.svg" style="position: absolute; right: 0px;">-->
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Start Menu -->
+				<div id="startMenu" class="start-menu" style="display:none;">
+					<img style="padding: 3px 0 0 3px;" src="icon/banner.png">
+				</div>
+
+				<!-- Taskbar -->
+				<div id="taskbar" class="taskbar">
+					<button class="start" id="startButton" onclick="startMenu()">Start</button>
+					<div class="taskbar-divider" style="left: 59px;"></div>
+					<div id="taskbar-programs" class="taskbar-programs"></div>
+					<div class="taskbar-divider" style="right: 67px;"></div>
+					<div id="taskbar-clock" class="taskbar-clock"></div>
+				</div>
+			</div>
+		</div>
+		<script>
+			document.addEventListener( "DOMContentLoaded", main, false );
+			showWindow(windows.aboutMe);
+		</script>
+	</body>
+</html>
