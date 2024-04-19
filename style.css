@@ -100,6 +100,9 @@ body {
   color: var(--text-color);
   scrollbar-color: transparent transparent;
   scrollbar-width: none;  
+  background: url('./img/wallbg.png');
+  background-repeat: repeat;
+  background-size: 200px;
 }
 
 button,
@@ -987,7 +990,7 @@ button.start.active:not(:disabled):active, input[type="reset"]:not(:disabled):ac
 .monitor {
   margin: auto;
 	position: relative;
-  background: url('./Monitor.png') no-repeat 100%;
+  background: url('./img/Monitor.png') no-repeat 100%;
   background-size: cover;
   width: 930px;
   height: 930px;
@@ -1086,6 +1089,22 @@ button.start.active:not(:disabled):active, input[type="reset"]:not(:disabled):ac
 }
 
 .desktopicon {
+  background: url('./icon/file_windows.png') no-repeat;
+  background-position: top 2px right 21px;
+  position: relative;
+  width: 74px;
+  height: 75px;
+  margin: 0 0 0 1px;
+
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+  text-align: center;
+}
+
+.recycle {
   background: url('./icon/file_windows.png') no-repeat;
   background-position: top 2px right 21px;
   position: relative;

@@ -39,9 +39,19 @@ var windows = {
         posX: "70px",
         posY: "26px",
     },
+    certifications: {
+        id: "certifications",
+        title: "Certifications",
+        state: "0", //(0 = Default, 1 = Maximized, 2 = Minimized)
+        active: false,
+        width: "500px",
+        height: "390px",
+        posX: "70px",
+        posY: "26px",
+    },
     startMenu: {
         id: "startMenu",
-        title: "Portfolio",
+        title: "Start Menu",
         state: "0", //(0 = Default, 1 = Maximized, 2 = Minimized)
         active: false,
         width: "500px",
@@ -52,6 +62,8 @@ var windows = {
 }
 
 var top_z = 10;
+
+var activated = false;
 
 function clamp(val, min, max) {
     return val > max ? max : val < min ? min : val;
@@ -104,20 +116,23 @@ function dragElement(object) {
 }
 
 function showWindow(object) {
-    let elmnt = document.getElementById(object.id)
-
-    if (document.getElementById(object.id + "btn") == null)
+    if (activated == true)
     {
-        taskbarButton(object);
+        let elmnt = document.getElementById(object.id)
+
+        if (document.getElementById(object.id + "btn") == null)
+        {
+            taskbarButton(object);
+        }
+
+        // Activate window
+        activeWindow(object);
+
+        // Bring to front on click
+        elmnt.onmousedown = function() { activeWindow(object); }
+
+        dragElement(object);
     }
-
-    // Activate window
-    activeWindow(object);
-
-    // Bring to front on click
-    elmnt.onmousedown = function() { activeWindow(object); }
-    
-    dragElement(object);
 }
 
 function closeWindow(object) {
@@ -423,8 +438,10 @@ function main()
     updateClock();
     setInterval(updateClock, 10000);
 
-    var context = canvas.getContext('2d');
-    context.webkitImageSmoothingEnabled = false;
-    context.mozImageSmoothingEnabled = false;
-    context.imageSmoothingEnabled = false;
+    //var canvas = document.getElementById('canvas');
+    //var context = canvas.getContext('2d');
+    //context.webkitImageSmoothingEnabled = false;
+    //context.mozImageSmoothingEnabled = false;
+    //context.imageSmoothingEnabled = false;
+
 }

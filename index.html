@@ -27,13 +27,16 @@
 
 					<!-- Desktop -->
 					<div id="desktop" class="screen-content">
+						<div class="recycle" onclick="new Audio('sound/RECYCLE.mp3').play();" style="background: url('./icon/recycle_bin.png') no-repeat; background-position: top 2px right 21px;">
+							<div class="desktopicon-text">Recycling Bin</div>
+						</div>
 						<div class="desktopicon" onclick="showWindow(windows.aboutMe)" style="background: url('./icon/user_card.png') no-repeat; background-position: top 2px right 21px;">
 							<div class="desktopicon-text">About Me</div>
 						</div>
 						<div class="desktopicon" onclick="showWindow(windows.experience)" style="background: url('./icon/briefcase.png') no-repeat; background-position: top 2px right 21px;">
 							<div class="desktopicon-text">Experience</div>
 						</div>
-						<div class="desktopicon" onclick="showWindow(windows.test)" style="background: url('./icon/certificate_seal.png') no-repeat; background-position: top 2px right 21px;">
+						<div class="desktopicon" onclick="showWindow(windows.certifications)" style="background: url('./icon/certificate_seal.png') no-repeat; background-position: top 2px right 21px;">
 							<div class="desktopicon-text">Certifications</div>
 						</div>
 						<div class="desktopicon" onclick="showWindow(windows.portfolio)" style="background: url('./icon/catalog.png') no-repeat; background-position: top 2px right 21px;">
@@ -68,7 +71,7 @@
 						<div class="window-content">
 							<div class="window-body">
 								<p style="font-weight: bold; font-size: 1rem; margin-top: 8px; margin-bottom: 0px;">Hello! My name is Jaden, and welcome to my website.</p>
-								<img src="image.png" style="float: left">
+								<img src="img/image.png" style="float: left">
 								<p style="font-size: 14px; text-align: left; padding-top: 10px; margin-left: calc(33%); margin-right: 20px;">I’m an IT specialist with a passion for learning and a knack for problem solving. I have experience in Support, Networking, Cybersecurity, and Software Development among many others. I can pick up just about any skill in no time flat, and already have quite a few under my belt. If you’re wondering what I’m capable of, it might be faster to list what I can’t do!</p>
 								<p style="font-size: 14px; text-align: left; margin: calc(6%) 20px 20px 20px;">To find out more about me, try navigating around the desktop like you would an actual computer, you can even drag the windows around! The icons can be clicked to view pages on my experiences, portfolio, and certifications. If you’d like to reach out, click the <b>Contact Me</b> icon in the bottom right.</p>
 								<p style="font-size: 14px; text-align: center; margin: 10px;">I look forward to hearing from you!</p>
@@ -78,7 +81,7 @@
 						</div>
 						<div class="status-bar fill">
 							<p class="status-bar-field">Press F1 for help</p>
-							<p class="status-bar-field">Last Updated: 4/5/24</p>
+							<p class="status-bar-field">Last Updated: 4/18/24</p>
 							<p class="status-bar-field">Created by Jaden Hankin</p>
 							<!--<img src="icon/corner.svg" style="position: absolute; right: 0px;">-->
 						</div>
@@ -182,7 +185,35 @@
 						</div>
 						<div class="status-bar fill">
 							<p class="status-bar-field">Press F1 for help</p>
-							<p class="status-bar-field">Last Updated: 4/5/24</p>
+							<p class="status-bar-field">Last Updated: 4/18/24</p>
+							<p class="status-bar-field">Created by Jaden Hankin</p>
+							<!--<img src="icon/corner.svg" style="position: absolute; right: 0px;">-->
+						</div>
+					</div>
+
+					<div id="certifications" class="window" style="position: absolute; display:none; width: 500px; height: 390px; left: 70px; top: 26px">
+						<div class="title-bar">
+							<div class="title-bar-text">Certifications</div>
+							<div class="title-bar-controls">
+								<button aria-label="Minimize" onclick="minimizeWindow(windows.certifications)"></button>
+								<button aria-label="Maximize" onclick="maximizeWindow(windows.certifications)"></button>
+								<button aria-label="Close" onclick="closeWindow(windows.certifications)"></button>
+							</div>
+						</div>
+						<div class="window-content">
+							<div class="window-body">
+								<p style="font-weight: bold; font-size: 1rem; margin-top: 8px; margin-bottom: 0px;">Hello! My name is Jaden, and welcome to my website.</p>
+								<img src="img/image.png" style="float: left">
+								<p style="font-size: 14px; text-align: left; padding-top: 10px; margin-left: calc(33%); margin-right: 20px;">I’m an IT specialist with a passion for learning and a knack for problem solving. I have experience in Support, Networking, Cybersecurity, and Software Development among many others. I can pick up just about any skill in no time flat, and already have quite a few under my belt. If you’re wondering what I’m capable of, it might be faster to list what I can’t do!</p>
+								<p style="font-size: 14px; text-align: left; margin: calc(6%) 20px 20px 20px;">To find out more about me, try navigating around the desktop like you would an actual computer, you can even drag the windows around! The icons can be clicked to view pages on my experiences, portfolio, and certifications. If you’d like to reach out, click the <b>Contact Me</b> icon in the bottom right.</p>
+								<p style="font-size: 14px; text-align: center; margin: 10px;">I look forward to hearing from you!</p>
+								<!--<button style="width: 75px; height: 23px; margin: 10px 10px 0 10px;" onclick="minimizeWindow(windows.aboutMe)">OK</button>-->
+								<button style="width: 75px; height: 23px; margin: 10px 10px 10px 10px;" onclick="closeWindow(windows.aboutMe)">Close</button>
+							</div>
+						</div>
+						<div class="status-bar fill">
+							<p class="status-bar-field">Press F1 for help</p>
+							<p class="status-bar-field">Last Updated: 4/18/24</p>
 							<p class="status-bar-field">Created by Jaden Hankin</p>
 							<!--<img src="icon/corner.svg" style="position: absolute; right: 0px;">-->
 						</div>
@@ -207,7 +238,25 @@
 		</div>
 		<script>
 			document.addEventListener( "DOMContentLoaded", main, false );
-			showWindow(windows.aboutMe);
+
+			//Play startup sound
+			//new Audio('sound/The Microsoft Sound.mp3').play();
+
+			//Wait for startup sound to finish, then display about page with ding sound
+			setTimeout(function(){
+				activated = true;
+				showWindow(windows.aboutMe);
+				new Audio('sound/DING.mp3').play();
+
+				const audio = new Audio('sound/START.mp3');
+    			const buttons = document.querySelectorAll(".desktopicon");
+
+    			buttons.forEach(button => {
+    			  button.addEventListener("click", () => {
+    			    audio.play();
+    			  });
+    			});
+			}, 1500)
 		</script>
 	</body>
 </html>
