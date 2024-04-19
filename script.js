@@ -336,45 +336,48 @@ function updateClock()
 
 function startMenu()
 {
-    let elmnt = document.getElementById("startMenu");
-    let startbtn = document.getElementById("startButton");
-
-    // Display window
-    elmnt.style.display = "block";
-
-    // Bring window to front
-    elmnt.style.zIndex = ++top_z;
-
-    // Show Start Button as clicked
-    startbtn.className = "start active";
-
-    for (s of document.querySelectorAll('.window'))
+    if (activated)
     {
-        let button =  document.getElementById(s.id + "btn");
-        s.querySelector('.title-bar').className = "title-bar inactive";
-        if (button != null) {
-            button.style.fontWeight = "normal";
-            button.className = "";
-            button.style.backgroundImage = "";
+        let elmnt = document.getElementById("startMenu");
+        let startbtn = document.getElementById("startButton");
+        
+        // Display window
+        elmnt.style.display = "block";
+        
+        // Bring window to front
+        elmnt.style.zIndex = ++top_z;
+        
+        // Show Start Button as clicked
+        startbtn.className = "start active";
+        
+        for (s of document.querySelectorAll('.window'))
+        {
+            let button =  document.getElementById(s.id + "btn");
+            s.querySelector('.title-bar').className = "title-bar inactive";
+            if (button != null) {
+                button.style.fontWeight = "normal";
+                button.className = "";
+                button.style.backgroundImage = "";
+            }
         }
-    }
-    // Hide Start Menu if user clicks element other than it
-    window.addEventListener('mousedown', function(e){   
-        if (elmnt.contains(e.target)) {
-            // Clicked in box
-        }
-        // Exclude start button from outside click, as it will cause event to trigger
-        else if (e.target != document.getElementById("startButton")) { 
-            // Clicked outside the box
-
-            // Hide start menu
-            elmnt.style.display = "none";
-            elmnt.active = false;
-
-            // Unclick Start Button
-            startbtn.className = "start";
-        }
-    });
+        // Hide Start Menu if user clicks element other than it
+        window.addEventListener('mousedown', function(e){   
+            if (elmnt.contains(e.target)) {
+                // Clicked in box
+            }
+            // Exclude start button from outside click, as it will cause event to trigger
+            else if (e.target != document.getElementById("startButton")) { 
+                // Clicked outside the box
+            
+                // Hide start menu
+                elmnt.style.display = "none";
+                elmnt.active = false;
+            
+                // Unclick Start Button
+                startbtn.className = "start";
+            }
+        });
+    }   
 }
 
 function tablist() {
@@ -444,4 +447,34 @@ function main()
     //context.mozImageSmoothingEnabled = false;
     //context.imageSmoothingEnabled = false;
 
+    //Set content of status bars across all windows
+    var statusbar = '<p class="status-bar-field">Press F1 for help</p><p class="status-bar-field">Last Updated: 4/18/24</p><p class="status-bar-field">Created by Jaden Hankin</p>';
+    for (content of document.getElementsByClassName("status-bar fill"))
+    {
+        content.innerHTML = statusbar;
+    }
+
+    setTimeout(function(){});
+
+    //Play startup sound
+    let startup = new Audio('sound/The Microsoft Sound.mp3');
+    startup.play()
+    
+    //Wait for startup sound to finish, then display about page with ding sound
+    setTimeout(function(){
+        activated = true;
+        showWindow(windows.aboutMe);
+        new Audio('sound/DING.mp3').play();
+
+        const audio = new Audio('sound/START.mp3');
+        const buttons = document.querySelectorAll(".desktopicon");
+
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+            audio.play();
+            });
+        });
+    }, startup.paused ? 1500 : 8000)
+    //Check for if audio is playing or not.
+    //Will not always play depending on autoplay, so this will change the delay based on if playing or not
 }

@@ -1143,6 +1143,55 @@ img {
   -ms-interpolation-mode: nearest-neighbor;
 }
 
+.certifications {
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.certifications > .header {
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 2px;
+  margin-top: 12px;
+}
+
+.certifications > .header.title {
+  font-size: 15px;
+  font-weight: bold;
+  float: left;
+  padding-right: 100px;;
+}
+
+.certifications > .header.date {
+  font-size: 13px;
+  font-weight: normal;
+  float: right;
+}
+
+.certifications > .header.subheader {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-style: italic;
+  float: left;
+  white-space: pre-line;
+}
+
+button.certification {
+  width: 48px; height: 56px;
+  background: url('./icon/certificate_2.png') no-repeat;
+  background-position: top 4px left 8px;
+  background-color: var(--button-face);
+  padding-top: 36px;
+  font-weight: bold;
+  float: right;
+  margin-right: 15px;
+}
+
+button.certification:not(:disabled):active, input[type="reset"]:not(:disabled):active {
+  background-position: top 5px left 9px;
+}
+
 #experience-header {
   font-size: 15px;
   margin:15px 15px 0px 15px;
