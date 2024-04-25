@@ -46,6 +46,11 @@
 							<div class="desktopicon-text">Resume</div>
 						</div>
 					</div>
+					<!--<div id="desktop" class="screen-content">
+						<div class="desktopicon" onclick="window.open('pdf/resume.pdf', '_blank').focus();" style="background: url('./icon/document.png') no-repeat; float: right; background-position: top 2px right 21px;">
+							<div class="desktopicon-text">Contact Me</div>
+						</div>
+					</div> -->
 
 					<!-- Windows -->
 					<div id="testWindow" class="window" style="position: absolute; display:none; width: 300px">
@@ -76,7 +81,7 @@
 								<p style="font-weight: bold; font-size: 1rem; margin-top: 8px; margin-bottom: 0px;">Hello! My name is Jaden, and welcome to my website.</p>
 								<img src="img/image.png" style="float: left">
 								<p style="font-size: 14px; text-align: left; padding-top: 10px; margin-left: calc(33%); margin-right: 20px;">I’m an IT specialist with a passion for learning and a knack for problem solving. I have experience in Support, Networking, Cybersecurity, and Software Development among many others. I can pick up just about any skill in no time flat, and already have quite a few under my belt. If you’re wondering what I’m capable of, it might be faster to list what I can’t do!</p>
-								<p style="font-size: 14px; text-align: left; margin: calc(6%) 20px 20px 20px;">To find out more about me, try navigating around the desktop like you would an actual computer, you can even drag the windows around! The icons can be clicked to view pages on my experiences, portfolio, and certifications. If you’d like to reach out, click the <b>Contact Me</b> icon in the bottom right.</p>
+								<p style="font-size: 14px; text-align: left; margin: calc(6%) 20px 20px 20px;">To find out more about me, try navigating around the desktop like you would an actual computer, you can even drag the windows around! The icons can be clicked to view pages on my experiences, portfolio, and certifications. If you’d like to reach out, view my contact info by clicking the <b>Resume</b> icon in the bottom left.</p>
 								<p style="font-size: 14px; text-align: center; margin: 10px;">I look forward to hearing from you!</p>
 								<!--<button style="width: 75px; height: 23px; margin: 10px 10px 0 10px;" onclick="minimizeWindow(windows.aboutMe)">OK</button>-->
 								<button style="width: 75px; height: 23px; margin: 10px 10px 10px 10px;" onclick="closeWindow(windows.aboutMe)">Close</button>
@@ -222,11 +227,36 @@
 						<div class="status-bar fill"></div>
 					</div>
 
+					<div id="contactMe" class="window" style="overflow:auto; resize: both; position: absolute; display:none; width: 500px; height: 390px; left: 70px; top: 26px">
+						<div class="title-bar">
+							<div class="title-bar-text">Contact Me</div>
+							<div class="title-bar-controls">
+								<button aria-label="Minimize" onclick="minimizeWindow(windows.contactMe)"></button>
+								<button aria-label="Maximize" onclick="maximizeWindow(windows.contactMe)"></button>
+								<button aria-label="Close" onclick="closeWindow(windows.contactMe)"></button>
+							</div>
+						</div>
+						<div class="window-content">
+							<div class="window-body">
+								<p style="font-weight: bold; font-size: 1rem; margin-top: 8px; margin-bottom: 0px;">Hello! My name is Jaden, and welcome to my website.</p>
+								<img src="img/image.png" style="float: left">
+								<p style="font-size: 14px; text-align: left; padding-top: 10px; margin-left: calc(33%); margin-right: 20px;">I’m an IT specialist with a passion for learning and a knack for problem solving. I have experience in Support, Networking, Cybersecurity, and Software Development among many others. I can pick up just about any skill in no time flat, and already have quite a few under my belt. If you’re wondering what I’m capable of, it might be faster to list what I can’t do!</p>
+								<p style="font-size: 14px; text-align: left; margin: calc(6%) 20px 20px 20px;">To find out more about me, try navigating around the desktop like you would an actual computer, you can even drag the windows around! The icons can be clicked to view pages on my experiences, portfolio, and certifications. If you’d like to reach out, click the <b>Contact Me</b> icon in the bottom right.</p>
+								<p style="font-size: 14px; text-align: center; margin: 10px;">I look forward to hearing from you!</p>
+								<!--<button style="width: 75px; height: 23px; margin: 10px 10px 0 10px;" onclick="minimizeWindow(windows.aboutMe)">OK</button>-->
+								<button style="width: 75px; height: 23px; margin: 10px 10px 10px 10px;" onclick="closeWindow(windows.aboutMe)">Close</button>
+							</div>
+						</div>
+						<div class="status-bar fill"><!--<img src="icon/corner.svg" style="position: absolute; right: 0px;">--></div>
+					</div>
+
 				</div>
 
 				<!-- Start Menu -->
-				<div id="startMenu" class="start-menu" style="display:none;">
-					<img style="padding: 3px 0 0 3px;" src="icon/banner.png">
+				<div id="startMenu" class="start-menu" style="overflow: hidden; display:none;">
+					<img style="float: left; padding: 3px 0 0 3px;" src="icon/banner.png">
+					<p style="margin: 5px; text-align: center;">This doesn't do anything</p>
+					<p style="margin: 5px; text-align: center;">(For now)</p>
 				</div>
 
 				<!-- Taskbar -->
