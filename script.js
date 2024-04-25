@@ -15,7 +15,7 @@ var windows = {
         state: "0", //(0 = Default, 1 = Maximized, 2 = Minimized)
         active: false,
         width: "500px",
-        height: "390px",
+        height: "410px",
         posX: "70px",
         posY: "26px",
     },
