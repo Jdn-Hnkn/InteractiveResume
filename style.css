@@ -1039,6 +1039,8 @@ button.start.active:not(:disabled):active, input[type="reset"]:not(:disabled):ac
   left: 2px;
   box-shadow: var(--border-window-outer), var(--border-window-inner);
   background: var(--surface);
+  font-family: "Pixelated MS Sans Serif";
+  font-size: 11px;
 }
 
 .taskbar {
