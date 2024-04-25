@@ -152,13 +152,16 @@ function maximizeWindow(object) {
     if (object.state != "1")
         {
             object.state = "1";
-
+            
             elmnt.style.left = "0px"
             elmnt.style.top = "0px"
-            elmnt.style.width = "634px";
+            elmnt.style.maxWidth = "635px";
+            elmnt.style.width = "635px";
+            elmnt.style.maxHeight = "447px";
             elmnt.style.height = "447px";
 
             elmnt.querySelector('[aria-label="Maximize"]').ariaLabel = "Restore";
+            elmnt.style.resize = "none";
         }
         else
         {
@@ -170,6 +173,7 @@ function maximizeWindow(object) {
             elmnt.style.height = object.height;
 
             elmnt.querySelector('[aria-label="Restore"]').ariaLabel = "Maximize";
+            elmnt.style.resize = "both";
         }
 
     dragElement(object);
@@ -469,11 +473,42 @@ function main()
         const audio = new Audio('sound/START.mp3');
         const buttons = document.querySelectorAll(".desktopicon");
 
+        // Set all desktop icon buttons to play click sounds
         buttons.forEach(button => {
             button.addEventListener("click", () => {
             audio.play();
             });
         });
+
+        const windowsList = document.querySelectorAll(".window")
+        const resizeObserver = new ResizeObserver((entries) => {
+            for (const entry of entries) {
+                let window = entry.target;
+
+                //Hide scrollbar while resizing, will reset itself to display when moved
+                let scrollbar = window.querySelector(".ss-scroll");
+                if (scrollbar) scrollbar.style.display = "none";
+
+                // Set max dimensions based on screensize - current position
+                let maxwidth = (635 - parseInt(window.style.left));
+                let maxheight = (447 - parseInt(window.style.top));
+                
+                window.style.maxWidth = maxwidth + "px";
+                window.style.maxHeight = maxheight + "px";
+            }
+          });
+
+        // Set windows to be resizable with minimum size
+        windowsList.forEach(window => {
+            window.style.minWidth = window.style.width;
+            window.style.minHeight = window.style.height;
+            //window.style.maxWidth = "100%"; 
+            //window.style.maxHeight = "100%"; 
+            window.style.overflow = "auto";
+            window.style.resize = "both";
+            resizeObserver.observe(window);
+        });
+
     }, startup.paused ? 1500 : 8000)
     //Check for if audio is playing or not.
     //Will not always play depending on autoplay, so this will change the delay based on if playing or not

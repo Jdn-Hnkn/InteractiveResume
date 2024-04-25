@@ -1228,3 +1228,11 @@ button.certification:not(:disabled):active, input[type="reset"]:not(:disabled):a
   top: 48px;
   display: none;
 }
+
+::-webkit-resizer {
+  display: none;  
+}
+
+::-moz-resizer {
+  display: none;
+}

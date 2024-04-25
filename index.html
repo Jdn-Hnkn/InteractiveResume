@@ -42,6 +42,9 @@
 						<div class="desktopicon" onclick="showWindow(windows.portfolio)" style="background: url('./icon/catalog.png') no-repeat; background-position: top 2px right 21px;">
 							<div class="desktopicon-text">Portfolio</div>
 						</div>
+						<div class="desktopicon" onclick="window.open('pdf/resume.pdf', '_blank').focus();" style="background: url('./icon/document.png') no-repeat; background-position: top 2px right 21px;">
+							<div class="desktopicon-text">Resume</div>
+						</div>
 					</div>
 
 					<!-- Windows -->
@@ -59,7 +62,7 @@
 						</div>
 					</div>
 
-					<div id="aboutMe" class="window" style="position: absolute; display:none; width: 500px; height: 390px; left: 70px; top: 26px">
+					<div id="aboutMe" class="window" style="overflow:auto; resize: both; position: absolute; display:none; width: 500px; height: 390px; left: 70px; top: 26px">
 						<div class="title-bar">
 							<div class="title-bar-text">About Me</div>
 							<div class="title-bar-controls">
@@ -216,7 +219,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="status-bar fill"><!--<img src="icon/corner.svg" style="position: absolute; right: 0px;">--></div>
+						<div class="status-bar fill"></div>
 					</div>
 
 				</div>
